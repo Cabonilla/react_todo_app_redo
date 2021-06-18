@@ -1,3 +1,12 @@
 .todo_input {
-	width: 400px;	
+	width: 40vw;	
+}
+
+form {
+	display: flex;
+	flex-direction: row
+}
+
+.todo-form {
+	margin-bottom: 1em;
 }

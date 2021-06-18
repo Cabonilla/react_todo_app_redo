@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { BiEditAlt, BiTrashAlt } from 'react-icons/bi'
+import { AiOutlineCheck } from 'react-icons/ai'
+import { BiTrashAlt } from 'react-icons/bi'
 import './Todo.css'
 import TodoForm from './TodoForm'
 
-function Todo({todos, completeTodo, removeTodo, updateTodo, }) {
+function Todo({ todos, completeTodo, removeTodo, updateTodo, }) {
 	const [edit, setEdit] = useState({
 		id: null,
 		value: ''
@@ -32,27 +33,34 @@ function Todo({todos, completeTodo, removeTodo, updateTodo, }) {
 
 	return todos.map((todo, index) => (
 		<div
-			className={todo.inComplete ? 'box' : 'box error'}
+			className={todo.isComplete ? 'box done' : 'box'}
+			id="todo-list"
 			key={index}>
-				{/* <div key={todo.id} onClick={() => completeTodo(todo.id)}>
+			{/* <div key={todo.id} onClick={() => completeTodo(todo.id)}>
 					{todo.text}
 				</div> */}
-				<input value={todo.text} id={todo.id} edit={edit} onClick={() => completeTodo(todo.id)} onChange={(e) => {
-					setEdit({ id: todo.id, text: e.target.value })
-					// inputUpdate( todo.id, e.target.value )
-					inputUpdate({ id: todo.id, text: e.target.value })
-				}}>
-				</input>
-				<div className="icons">
-					<BiTrashAlt 
-						onClick={() => removeTodo(todo.id)}
-						className='delete-icon'
-					/>
-					<BiEditAlt
-						onClick={() => setEdit({ id: todo.id, value: todo.text })}
-						className='edit-icon'
-					/>
-				</div>
+			<input className={todo.isComplete ? 'inputdone' : 'inputlive'} value={todo.text} id={todo.id} edit={edit} onChange={(e) => {
+				setEdit({ id: todo.id, text: e.target.value })
+				// inputUpdate( todo.id, e.target.value )
+				inputUpdate({ id: todo.id, text: e.target.value })
+			}}>
+			</input>
+			<div className="icons">
+				{/* <BiEditAlt
+					onClick={() => setEdit({ id: todo.id, value: todo.text })}
+					className='edit-icon'
+				/> */}
+				<AiOutlineCheck
+					onClick={() => completeTodo(todo.id)}
+					className='delete-icon'
+				/>
+				<BiTrashAlt
+					onClick={() => removeTodo(todo.id)}
+					className='delete-icon'
+				/>
+
+
+			</div>
 		</div>
 	))
 }

@@ -1,0 +1,15 @@
+
+.container {
+	margin-top: 5em;
+	width: 40vw;
+}
+
+.box {
+	display: flex;
+	flex-direction: column;
+}
+
+.title {
+	align-self: center;
+	justify-self: center;
+}

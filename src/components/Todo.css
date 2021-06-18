@@ -6,3 +6,30 @@ input {
 input:focus {
 	outline: none;
 }
+
+#todo-list {
+	/* margin-top: 1em; */
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between
+}
+
+input[class^='input'] {
+	width: 100%;
+	height: 100%;
+}
+
+.icons {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 3em;
+}
+
+.box.done {
+	background: lightgray;
+}
+
+.inputdone {
+	color: gray;
+}
